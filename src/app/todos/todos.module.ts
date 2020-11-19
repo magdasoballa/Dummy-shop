@@ -4,8 +4,6 @@ import {TodosComponent} from "./todos.component";
 import {SingleTodoComponent} from "./single-todo/single-todo.component";
 import {TodoListComponent} from "./todo-list/todo-list.component";
 
-
-
 @NgModule({
   declarations: [
     TodosComponent,
