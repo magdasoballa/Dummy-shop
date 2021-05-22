@@ -1,0 +1,46 @@
+.header__container {
+  background-color: #00688b;
+  height: 120px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  &--title {
+    color: #fff;
+    font-family: "Courier New", Courier, monospace;
+    margin-left: 32px;
+  }
+  &--searcher {
+    background: transparent;
+    border: 2px solid #fff;
+    border-radius: 5px;
+    width: 250px;
+    height: 25px;
+  }
+  &--input {
+    border: none;
+    background: transparent;
+    width: 85%;
+    outline: transparent;
+  }
+  &--icon {
+    width: 20px;
+    height: 25px;
+    fill: #fff;
+  }
+  &--account {
+    display: flex;
+    color: #fff;
+    align-items: center;
+    justify-content: space-between;
+    div {
+      margin-right: 24px;
+      margin-bottom: 8px;
+      line-height: 2rem;
+      cursor: pointer;
+      &:hover {
+        border-bottom: 1px solid #fff;
+      }
+    }
+  }
+}

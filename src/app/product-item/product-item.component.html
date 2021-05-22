@@ -1,0 +1,16 @@
+<div class="product__item">
+    <svg class="product__item--icon" [ngClass]="{'red': isAddedToFavourites==true}" viewBox="0 0 412.735 412.735"
+        (click)="changeAddedToFavourites()">
+        <use xlink:href="assets/sprites.svg#heart" />
+    </svg>
+
+    <img class="product__item--image" src="{{product.image}}" />
+    <h3 class="product__item--title"> {{ product.title}} </h3>
+    <div class="product__item--price-and-cart">
+        <h6 class="product__item--price" [ngClass]="{'shorter-title': product.title.length < 30}"> {{ product.price}}$
+        </h6>
+        <svg class="product__item--icon" viewBox="0 0 512 512" (click)="addToCart()">
+            <use xlink:href="assets/sprites.svg#cart" />
+        </svg>
+    </div>
+</div>
