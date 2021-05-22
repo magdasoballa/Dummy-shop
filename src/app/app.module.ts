@@ -13,7 +13,10 @@ import { ProductListComponent } from "./product-list/product-list.component";
 import { ProductItemComponent } from "./product-item/product-item.component";
 import { HeaderComponent } from "./header/header.component";
 import { StoreModule } from "@ngrx/store";
-import { cartReducer } from "./store/cart.reducer";
+import { StoreDevtoolsModule } from "@ngrx/store-devtools";
+import { environment } from "../environments/environment";
+import { appReducer } from "./app.reducer";
+import { PopupComponent } from "./popup/popup.component";
 
 @NgModule({
   declarations: [
@@ -22,6 +25,7 @@ import { cartReducer } from "./store/cart.reducer";
     ProductListComponent,
     ProductItemComponent,
     HeaderComponent,
+    PopupComponent,
   ],
   imports: [
     BrowserModule,
@@ -31,7 +35,11 @@ import { cartReducer } from "./store/cart.reducer";
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    StoreModule.forRoot({ cart: cartReducer }),
+    StoreModule.forRoot(appReducer),
+    StoreDevtoolsModule.instrument({
+      maxAge: 25,
+      logOnly: environment.production,
+    }),
   ],
   bootstrap: [AppComponent],
 })

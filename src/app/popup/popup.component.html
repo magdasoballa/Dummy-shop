@@ -1,0 +1,11 @@
+<div class="modal" [ngClass]="{'invisible': isPopupVisible==false}" #popup>
+
+    <div class="modal__content">
+        <span class="modal__close" (click)="closeModal()">&times;</span>
+        <p>Some text in the Modal..</p>
+        <div *ngIf="itemsInCart$ | async as itemsInCart">
+            {{itemsInCart | json}}
+        </div>
+    </div>
+
+</div>
