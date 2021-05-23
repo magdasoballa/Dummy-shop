@@ -14,6 +14,7 @@
         </svg>
     </div>
 </div>
-<ng-container *ngIf="showPopup">
-    <app-popup></app-popup>
-</ng-container>
+
+<div #popup *ngIf="showPopup==true">
+    <app-popup [(showPopup)]="showPopup" (toggle)="showPopup=$event"></app-popup>
+</div>

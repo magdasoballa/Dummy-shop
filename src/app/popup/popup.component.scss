@@ -8,27 +8,37 @@
   overflow: auto;
   background-color: rgb(0, 0, 0);
   background-color: rgba(0, 0, 0, 0.4);
-}
-
-.modal__content {
-  background-color: #fefefe;
-  margin: 15% auto;
-  padding: 20px;
-  border: 1px solid #888;
-  width: 80%;
-}
-
-.modal__close {
-  color: #aaa;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
-  &:hover,
-  &:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
+  &__content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
   }
+  &__close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    &:hover,
+    &:focus {
+      color: black;
+      text-decoration: none;
+      cursor: pointer;
+    }
+  }
+  &__message {
+    color: #00688b;
+    font-size: 17px;
+    font-weight: 700;
+    margin-top: 24px;
+  }
+}
+
+.modal__itemsInCart {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .invisible {

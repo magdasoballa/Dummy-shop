@@ -1,4 +1,12 @@
-import { Component, EventEmitter, Input, Output } from "@angular/core";
+import {
+  Component,
+  ElementRef,
+  EventEmitter,
+  Input,
+  Output,
+  Renderer2,
+  ViewChild,
+} from "@angular/core";
 import { Store } from "@ngrx/store";
 import { Product } from "../products.model";
 import * as fromCartReducer from "../store/cart.reducer";
@@ -13,8 +21,10 @@ import * as FavouritesActions from "../store/favourites.actions";
 export class ProductItemComponent {
   @Input() product: Product;
   @Output() newProductToCart = new EventEmitter<number>();
+  @ViewChild("popup") popup: ElementRef;
+
   isAddedToFavourites = false;
-  showPopup = false;
+  showPopup;
 
   constructor(private store: Store<fromCartReducer.State>) {}
 
@@ -26,6 +36,7 @@ export class ProductItemComponent {
   }
 
   addToCart() {
+    console.log(this.showPopup);
     this.store.dispatch(new CartActions.AddItemToCart(this.product));
     this.showPopup = true;
   }

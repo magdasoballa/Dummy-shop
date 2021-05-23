@@ -1,11 +1,20 @@
-<div class="modal" [ngClass]="{'invisible': isPopupVisible==false}" #popup>
+<div class="modal" [ngClass]="{'invisible': showPopup==false}">
 
-    <div class="modal__content">
+    <div class="modal__content" *ngIf="itemsInCart$ | async as itemsInCart" #popup>
         <span class="modal__close" (click)="closeModal()">&times;</span>
-        <p>Some text in the Modal..</p>
-        <div *ngIf="itemsInCart$ | async as itemsInCart">
-            {{itemsInCart | json}}
+        {{ hasDuplicate(itemsInCart.itemsAddedToCart )}}
+        <h3 class="modal__message">Przedmiot {{ itemsInCart.itemsAddedToCart[ itemsInCart.itemsAddedToCart.length
+            -1].title }}
+            został dodany do koszyka!
+        </h3>
+        <h1>Przedmioty w koszyku:</h1>
+        <div>
+            <div class="modal__itemsInCart" *ngFor="let itemInCart of itemsInCart.itemsAddedToCart ; index as i">
+                <p> {{i + 1}}. {{itemInCart.title }} </p>
+                <p>{{ itemInCart.price }} $</p>
+            </div>
         </div>
+
     </div>
 
 </div>
